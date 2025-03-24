@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+using static DVLD_UI.GlobalClasses.clsGlobal;
 
 namespace DVLD_UI.Users
 {
@@ -25,21 +25,32 @@ namespace DVLD_UI.Users
         private void _DeleteUser()  
         {
             int UserID = int.Parse(dgvListUsers.CurrentRow.Cells[0].Value.ToString());
-            if (clsUser.IsUserExist(UserID))
+            clsUser User = clsUser.FindByUserID(UserID);
+            if (User == null)
             {
-                if(MessageBox.Show($"Are you sure you want to delete this user the user will be deleted permenetly","Question",
-                    MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
-                {
-                    if(clsUser.DeleteUser(UserID))
-                    {
-                        MessageBox.Show($"User deleted successfulyy","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        frmManageUsers_Load(null, null);
-                    }else
-                        MessageBox.Show($"User {UserID}  is not deleted due to data connected to","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"User {UserID} not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                }
-            }else
-                MessageBox.Show($"User {UserID} not found","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            if (CurrentUser.UserID == UserID||User.Permessions==-1)
+            {
+                MessageBox.Show($"The selected User Can't be deleted", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if(MessageBox.Show($"Are you sure you want to delete this user the user will be deleted permenetly","Question",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                if(clsUser.DeleteUser(UserID))
+                {
+                    MessageBox.Show($"User deleted successfulyy","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    frmManageUsers_Load(null, null);
+                }else
+                    MessageBox.Show($"User {UserID}  is not deleted due to data connected to","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+            }
+
         }
         private void _RefreshUsersList()
         {
