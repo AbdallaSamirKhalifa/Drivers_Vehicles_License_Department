@@ -11,13 +11,7 @@ using DVLD_UI.Tests;
 using DVLD_UI.Users;
 using DVLD_UI.Users.My_Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static DVLD_UI.GlobalClasses.clsGlobal;
 using System.Windows.Forms;
 
 namespace DVLD_UI.My_Forms
@@ -154,24 +148,24 @@ namespace DVLD_UI.My_Forms
 
         private void DVLDMainForm_Load(object sender, EventArgs e)
         {
-            if (clsGlobal.CurrentUser.Permessions == -1)
+            if (CurrentUser.Permessions == -1)
                 return;
 
-            peopleToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManagePeople);
-            driversToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageDrivers);
-            usersToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageUsers);
-            localLicenseToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageLocalLicenseApplications);
-            internationalLicenseToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageInternationalLicenseApplications);
-            renewDrivingLicenseToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.RenewDrivingLicense);
-            replacementForLostOrDamagedLicenseToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ReplaceDrivingLicense);
-            releaseDetatainedDrivingLicenseToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageDetainedLicenses);
-            retakeTestToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageLocalLicenseApplications);
-            localDrivingLicenseApplicationToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageLocalLicenseApplications);
-            internationalLicenseApplicationToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageInternationalLicenseApplications);
-            detainLicencesToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageDetainedLicenses);
-            manageApplicationTypesToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageApplicationTypes);
+            peopleToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManagePeople);
+            driversToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageDrivers);
+            usersToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageUsers);
+            localLicenseToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageLocalLicenseApplications);
+            internationalLicenseToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageInternationalLicenseApplications);
+            renewDrivingLicenseToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.RenewDrivingLicense);
+            replacementForLostOrDamagedLicenseToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ReplaceDrivingLicense);
+            releaseDetatainedDrivingLicenseToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageDetainedLicenses);
+            retakeTestToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageLocalLicenseApplications);
+            localDrivingLicenseApplicationToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageLocalLicenseApplications);
+            internationalLicenseApplicationToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageInternationalLicenseApplications);
+            detainLicencesToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageDetainedLicenses);
+            manageApplicationTypesToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageApplicationTypes);
 
-            manageTestTypesToolStripMenuItem.Enabled = clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageTestTypes);
+            manageTestTypesToolStripMenuItem.Enabled = CheckPermesstions(enPersmessions.ManageTestTypes);
 
         }
 
