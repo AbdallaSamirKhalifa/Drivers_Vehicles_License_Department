@@ -33,7 +33,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
+            this.ctrlPersonWithfilter2 = new DVLD_UI.People.My_Controls.ctrlPersonWithfilter();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
+            this.btnPermessions = new System.Windows.Forms.Button();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -47,25 +49,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tpPermessions = new System.Windows.Forms.TabPage();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.chkAdmin = new System.Windows.Forms.CheckBox();
+            this.gbPermessions = new System.Windows.Forms.GroupBox();
+            this.chkManageDrivers = new System.Windows.Forms.CheckBox();
+            this.chkReplaceDrivingLicense = new System.Windows.Forms.CheckBox();
+            this.chkRenewDrivingLicense = new System.Windows.Forms.CheckBox();
+            this.chkManageTestTypes = new System.Windows.Forms.CheckBox();
+            this.chkManageInternationalLicenseApplications = new System.Windows.Forms.CheckBox();
+            this.chkManageDetainedLicenses = new System.Windows.Forms.CheckBox();
+            this.chkManageApplicationTypes = new System.Windows.Forms.CheckBox();
+            this.chkManageLocalLicenseApplications = new System.Windows.Forms.CheckBox();
+            this.chkManageUsers = new System.Windows.Forms.CheckBox();
+            this.chkManagePeople = new System.Windows.Forms.CheckBox();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.epAddUpdate = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tpPermessions = new System.Windows.Forms.TabPage();
-            this.gbPermessions = new System.Windows.Forms.GroupBox();
-            this.chkAdmin = new System.Windows.Forms.CheckBox();
-            this.chkManagePeople = new System.Windows.Forms.CheckBox();
-            this.chkManageUsers = new System.Windows.Forms.CheckBox();
-            this.chkManageLocalLicenseApplications = new System.Windows.Forms.CheckBox();
-            this.chkManageApplicationTypes = new System.Windows.Forms.CheckBox();
-            this.chkManageDetainedLicenses = new System.Windows.Forms.CheckBox();
-            this.chkManageInternationalLicenseApplications = new System.Windows.Forms.CheckBox();
-            this.chkManageTestTypes = new System.Windows.Forms.CheckBox();
-            this.chkRenewDrivingLicense = new System.Windows.Forms.CheckBox();
-            this.chkReplaceDrivingLicense = new System.Windows.Forms.CheckBox();
-            this.chkManageDrivers = new System.Windows.Forms.CheckBox();
-            this.btnPrev = new System.Windows.Forms.Button();
-            this.btnPermessions = new System.Windows.Forms.Button();
-            this.ctrlPersonWithfilter2 = new DVLD_UI.People.My_Controls.ctrlPersonWithfilter();
             this.tabControl1.SuspendLayout();
             this.tpPersonInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -73,9 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epAddUpdate)).BeginInit();
             this.tpPermessions.SuspendLayout();
             this.gbPermessions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epAddUpdate)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -131,6 +131,18 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // ctrlPersonWithfilter2
+            // 
+            this.ctrlPersonWithfilter2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ctrlPersonWithfilter2.FilterEnabled = true;
+            this.ctrlPersonWithfilter2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlPersonWithfilter2.Location = new System.Drawing.Point(8, 19);
+            this.ctrlPersonWithfilter2.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrlPersonWithfilter2.Name = "ctrlPersonWithfilter2";
+            this.ctrlPersonWithfilter2.ShowAddPersonBtn = true;
+            this.ctrlPersonWithfilter2.Size = new System.Drawing.Size(933, 455);
+            this.ctrlPersonWithfilter2.TabIndex = 0;
+            // 
             // tpLoginInfo
             // 
             this.tpLoginInfo.BackColor = System.Drawing.Color.White;
@@ -155,6 +167,18 @@
             this.tpLoginInfo.Size = new System.Drawing.Size(956, 539);
             this.tpLoginInfo.TabIndex = 1;
             this.tpLoginInfo.Text = "Login Info";
+            // 
+            // btnPermessions
+            // 
+            this.btnPermessions.Image = global::DVLD_UI.Properties.Resources.Next_32;
+            this.btnPermessions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPermessions.Location = new System.Drawing.Point(759, 496);
+            this.btnPermessions.Name = "btnPermessions";
+            this.btnPermessions.Size = new System.Drawing.Size(179, 36);
+            this.btnPermessions.TabIndex = 14;
+            this.btnPermessions.Text = "Permessions";
+            this.btnPermessions.UseVisualStyleBackColor = true;
+            this.btnPermessions.Click += new System.EventHandler(this.btnPermessions_Click);
             // 
             // chkIsActive
             // 
@@ -286,6 +310,190 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "User ID:";
             // 
+            // tpPermessions
+            // 
+            this.tpPermessions.BackColor = System.Drawing.Color.White;
+            this.tpPermessions.Controls.Add(this.btnPrev);
+            this.tpPermessions.Controls.Add(this.chkAdmin);
+            this.tpPermessions.Controls.Add(this.gbPermessions);
+            this.tpPermessions.Location = new System.Drawing.Point(4, 29);
+            this.tpPermessions.Name = "tpPermessions";
+            this.tpPermessions.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPermessions.Size = new System.Drawing.Size(956, 539);
+            this.tpPermessions.TabIndex = 2;
+            this.tpPermessions.Text = "Permessions";
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Image = global::DVLD_UI.Properties.Resources.Prev_32;
+            this.btnPrev.Location = new System.Drawing.Point(23, 6);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(61, 51);
+            this.btnPrev.TabIndex = 2;
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // chkAdmin
+            // 
+            this.chkAdmin.AutoSize = true;
+            this.chkAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAdmin.Location = new System.Drawing.Point(356, 24);
+            this.chkAdmin.Name = "chkAdmin";
+            this.chkAdmin.Size = new System.Drawing.Size(235, 33);
+            this.chkAdmin.TabIndex = 1;
+            this.chkAdmin.Text = "Set User As Admin";
+            this.chkAdmin.UseVisualStyleBackColor = true;
+            this.chkAdmin.CheckedChanged += new System.EventHandler(this.chkAdmin_CheckedChanged);
+            // 
+            // gbPermessions
+            // 
+            this.gbPermessions.Controls.Add(this.chkManageDrivers);
+            this.gbPermessions.Controls.Add(this.chkReplaceDrivingLicense);
+            this.gbPermessions.Controls.Add(this.chkRenewDrivingLicense);
+            this.gbPermessions.Controls.Add(this.chkManageTestTypes);
+            this.gbPermessions.Controls.Add(this.chkManageInternationalLicenseApplications);
+            this.gbPermessions.Controls.Add(this.chkManageDetainedLicenses);
+            this.gbPermessions.Controls.Add(this.chkManageApplicationTypes);
+            this.gbPermessions.Controls.Add(this.chkManageLocalLicenseApplications);
+            this.gbPermessions.Controls.Add(this.chkManageUsers);
+            this.gbPermessions.Controls.Add(this.chkManagePeople);
+            this.gbPermessions.Location = new System.Drawing.Point(23, 63);
+            this.gbPermessions.Name = "gbPermessions";
+            this.gbPermessions.Size = new System.Drawing.Size(901, 447);
+            this.gbPermessions.TabIndex = 0;
+            this.gbPermessions.TabStop = false;
+            this.gbPermessions.Text = "Permessions";
+            // 
+            // chkManageDrivers
+            // 
+            this.chkManageDrivers.AutoSize = true;
+            this.chkManageDrivers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManageDrivers.Location = new System.Drawing.Point(620, 366);
+            this.chkManageDrivers.Name = "chkManageDrivers";
+            this.chkManageDrivers.Size = new System.Drawing.Size(172, 29);
+            this.chkManageDrivers.TabIndex = 9;
+            this.chkManageDrivers.Tag = "ManageDrivers";
+            this.chkManageDrivers.Text = "Manage Drivers";
+            this.chkManageDrivers.UseVisualStyleBackColor = true;
+            this.chkManageDrivers.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkReplaceDrivingLicense
+            // 
+            this.chkReplaceDrivingLicense.AutoSize = true;
+            this.chkReplaceDrivingLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkReplaceDrivingLicense.Location = new System.Drawing.Point(620, 296);
+            this.chkReplaceDrivingLicense.Name = "chkReplaceDrivingLicense";
+            this.chkReplaceDrivingLicense.Size = new System.Drawing.Size(243, 29);
+            this.chkReplaceDrivingLicense.TabIndex = 8;
+            this.chkReplaceDrivingLicense.Tag = "ReplaceDrivingLicense";
+            this.chkReplaceDrivingLicense.Text = "Replace Driving License";
+            this.chkReplaceDrivingLicense.UseVisualStyleBackColor = true;
+            this.chkReplaceDrivingLicense.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkRenewDrivingLicense
+            // 
+            this.chkRenewDrivingLicense.AutoSize = true;
+            this.chkRenewDrivingLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRenewDrivingLicense.Location = new System.Drawing.Point(620, 226);
+            this.chkRenewDrivingLicense.Name = "chkRenewDrivingLicense";
+            this.chkRenewDrivingLicense.Size = new System.Drawing.Size(232, 29);
+            this.chkRenewDrivingLicense.TabIndex = 7;
+            this.chkRenewDrivingLicense.Tag = "RenewDrivingLicense";
+            this.chkRenewDrivingLicense.Text = "Renew Driving License";
+            this.chkRenewDrivingLicense.UseVisualStyleBackColor = true;
+            this.chkRenewDrivingLicense.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkManageTestTypes
+            // 
+            this.chkManageTestTypes.AutoSize = true;
+            this.chkManageTestTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManageTestTypes.Location = new System.Drawing.Point(620, 156);
+            this.chkManageTestTypes.Name = "chkManageTestTypes";
+            this.chkManageTestTypes.Size = new System.Drawing.Size(210, 29);
+            this.chkManageTestTypes.TabIndex = 6;
+            this.chkManageTestTypes.Tag = "ManageTestTypes";
+            this.chkManageTestTypes.Text = "Manage Test Types";
+            this.chkManageTestTypes.UseVisualStyleBackColor = true;
+            this.chkManageTestTypes.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkManageInternationalLicenseApplications
+            // 
+            this.chkManageInternationalLicenseApplications.AutoSize = true;
+            this.chkManageInternationalLicenseApplications.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManageInternationalLicenseApplications.Location = new System.Drawing.Point(81, 296);
+            this.chkManageInternationalLicenseApplications.Name = "chkManageInternationalLicenseApplications";
+            this.chkManageInternationalLicenseApplications.Size = new System.Drawing.Size(401, 29);
+            this.chkManageInternationalLicenseApplications.TabIndex = 5;
+            this.chkManageInternationalLicenseApplications.Tag = "ManageInternationalLicenseApplications";
+            this.chkManageInternationalLicenseApplications.Text = "Manage International License Applications";
+            this.chkManageInternationalLicenseApplications.UseVisualStyleBackColor = true;
+            this.chkManageInternationalLicenseApplications.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkManageDetainedLicenses
+            // 
+            this.chkManageDetainedLicenses.AutoSize = true;
+            this.chkManageDetainedLicenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManageDetainedLicenses.Location = new System.Drawing.Point(81, 366);
+            this.chkManageDetainedLicenses.Name = "chkManageDetainedLicenses";
+            this.chkManageDetainedLicenses.Size = new System.Drawing.Size(272, 29);
+            this.chkManageDetainedLicenses.TabIndex = 4;
+            this.chkManageDetainedLicenses.Tag = "ManageDetainedLicenses";
+            this.chkManageDetainedLicenses.Text = "Manage Detained Licenses";
+            this.chkManageDetainedLicenses.UseVisualStyleBackColor = true;
+            this.chkManageDetainedLicenses.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkManageApplicationTypes
+            // 
+            this.chkManageApplicationTypes.AutoSize = true;
+            this.chkManageApplicationTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManageApplicationTypes.Location = new System.Drawing.Point(620, 86);
+            this.chkManageApplicationTypes.Name = "chkManageApplicationTypes";
+            this.chkManageApplicationTypes.Size = new System.Drawing.Size(267, 29);
+            this.chkManageApplicationTypes.TabIndex = 3;
+            this.chkManageApplicationTypes.Tag = "ManageApplicationTypes";
+            this.chkManageApplicationTypes.Text = "Manage Application Types";
+            this.chkManageApplicationTypes.UseVisualStyleBackColor = true;
+            this.chkManageApplicationTypes.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkManageLocalLicenseApplications
+            // 
+            this.chkManageLocalLicenseApplications.AutoSize = true;
+            this.chkManageLocalLicenseApplications.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManageLocalLicenseApplications.Location = new System.Drawing.Point(81, 226);
+            this.chkManageLocalLicenseApplications.Name = "chkManageLocalLicenseApplications";
+            this.chkManageLocalLicenseApplications.Size = new System.Drawing.Size(342, 29);
+            this.chkManageLocalLicenseApplications.TabIndex = 2;
+            this.chkManageLocalLicenseApplications.Tag = "ManageLocalLicenseApplications";
+            this.chkManageLocalLicenseApplications.Text = "Manage Local License Applications";
+            this.chkManageLocalLicenseApplications.UseVisualStyleBackColor = true;
+            this.chkManageLocalLicenseApplications.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkManageUsers
+            // 
+            this.chkManageUsers.AutoSize = true;
+            this.chkManageUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManageUsers.Location = new System.Drawing.Point(81, 156);
+            this.chkManageUsers.Name = "chkManageUsers";
+            this.chkManageUsers.Size = new System.Drawing.Size(162, 29);
+            this.chkManageUsers.TabIndex = 1;
+            this.chkManageUsers.Tag = "ManageUsers";
+            this.chkManageUsers.Text = "Manage Users";
+            this.chkManageUsers.UseVisualStyleBackColor = true;
+            this.chkManageUsers.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
+            // chkManagePeople
+            // 
+            this.chkManagePeople.AutoSize = true;
+            this.chkManagePeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkManagePeople.Location = new System.Drawing.Point(81, 86);
+            this.chkManagePeople.Name = "chkManagePeople";
+            this.chkManagePeople.Size = new System.Drawing.Size(172, 29);
+            this.chkManagePeople.TabIndex = 0;
+            this.chkManagePeople.Tag = "ManagePeople";
+            this.chkManagePeople.Text = "Manage People";
+            this.chkManagePeople.UseVisualStyleBackColor = true;
+            this.chkManagePeople.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
+            // 
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
@@ -315,214 +523,6 @@
             // 
             this.epAddUpdate.ContainerControl = this;
             // 
-            // tpPermessions
-            // 
-            this.tpPermessions.BackColor = System.Drawing.Color.White;
-            this.tpPermessions.Controls.Add(this.btnPrev);
-            this.tpPermessions.Controls.Add(this.chkAdmin);
-            this.tpPermessions.Controls.Add(this.gbPermessions);
-            this.tpPermessions.Location = new System.Drawing.Point(4, 29);
-            this.tpPermessions.Name = "tpPermessions";
-            this.tpPermessions.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPermessions.Size = new System.Drawing.Size(956, 539);
-            this.tpPermessions.TabIndex = 2;
-            this.tpPermessions.Text = "Permessions";
-            // 
-            // gbPermessions
-            // 
-            this.gbPermessions.Controls.Add(this.chkManageDrivers);
-            this.gbPermessions.Controls.Add(this.chkReplaceDrivingLicense);
-            this.gbPermessions.Controls.Add(this.chkRenewDrivingLicense);
-            this.gbPermessions.Controls.Add(this.chkManageTestTypes);
-            this.gbPermessions.Controls.Add(this.chkManageInternationalLicenseApplications);
-            this.gbPermessions.Controls.Add(this.chkManageDetainedLicenses);
-            this.gbPermessions.Controls.Add(this.chkManageApplicationTypes);
-            this.gbPermessions.Controls.Add(this.chkManageLocalLicenseApplications);
-            this.gbPermessions.Controls.Add(this.chkManageUsers);
-            this.gbPermessions.Controls.Add(this.chkManagePeople);
-            this.gbPermessions.Location = new System.Drawing.Point(23, 63);
-            this.gbPermessions.Name = "gbPermessions";
-            this.gbPermessions.Size = new System.Drawing.Size(901, 447);
-            this.gbPermessions.TabIndex = 0;
-            this.gbPermessions.TabStop = false;
-            this.gbPermessions.Text = "Permessions";
-            // 
-            // chkAdmin
-            // 
-            this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAdmin.Location = new System.Drawing.Point(356, 24);
-            this.chkAdmin.Name = "chkAdmin";
-            this.chkAdmin.Size = new System.Drawing.Size(235, 33);
-            this.chkAdmin.TabIndex = 1;
-            this.chkAdmin.Text = "Set User As Admin";
-            this.chkAdmin.UseVisualStyleBackColor = true;
-            this.chkAdmin.CheckedChanged += new System.EventHandler(this.chkAdmin_CheckedChanged);
-            // 
-            // chkManagePeople
-            // 
-            this.chkManagePeople.AutoSize = true;
-            this.chkManagePeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManagePeople.Location = new System.Drawing.Point(81, 86);
-            this.chkManagePeople.Name = "chkManagePeople";
-            this.chkManagePeople.Size = new System.Drawing.Size(172, 29);
-            this.chkManagePeople.TabIndex = 0;
-            this.chkManagePeople.Tag = "ManagePeople";
-            this.chkManagePeople.Text = "Manage People";
-            this.chkManagePeople.UseVisualStyleBackColor = true;
-            this.chkManagePeople.CheckedChanged += new System.EventHandler(this.chkManagePeople_CheckedChanged);
-            // 
-            // chkManageUsers
-            // 
-            this.chkManageUsers.AutoSize = true;
-            this.chkManageUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManageUsers.Location = new System.Drawing.Point(81, 156);
-            this.chkManageUsers.Name = "chkManageUsers";
-            this.chkManageUsers.Size = new System.Drawing.Size(162, 29);
-            this.chkManageUsers.TabIndex = 1;
-            this.chkManageUsers.Tag = "ManageUsers";
-            this.chkManageUsers.Text = "Manage Users";
-            this.chkManageUsers.UseVisualStyleBackColor = true;
-            this.chkManageUsers.CheckedChanged += new System.EventHandler(this.chkManageUsers_CheckedChanged);
-            // 
-            // chkManageLocalLicenseApplications
-            // 
-            this.chkManageLocalLicenseApplications.AutoSize = true;
-            this.chkManageLocalLicenseApplications.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManageLocalLicenseApplications.Location = new System.Drawing.Point(81, 226);
-            this.chkManageLocalLicenseApplications.Name = "chkManageLocalLicenseApplications";
-            this.chkManageLocalLicenseApplications.Size = new System.Drawing.Size(342, 29);
-            this.chkManageLocalLicenseApplications.TabIndex = 2;
-            this.chkManageLocalLicenseApplications.Tag = "ManageLocalLicenseApplications";
-            this.chkManageLocalLicenseApplications.Text = "Manage Local License Applications";
-            this.chkManageLocalLicenseApplications.UseVisualStyleBackColor = true;
-            this.chkManageLocalLicenseApplications.CheckedChanged += new System.EventHandler(this.chkManageLocalLicenseApplications_CheckedChanged);
-            // 
-            // chkManageApplicationTypes
-            // 
-            this.chkManageApplicationTypes.AutoSize = true;
-            this.chkManageApplicationTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManageApplicationTypes.Location = new System.Drawing.Point(620, 86);
-            this.chkManageApplicationTypes.Name = "chkManageApplicationTypes";
-            this.chkManageApplicationTypes.Size = new System.Drawing.Size(267, 29);
-            this.chkManageApplicationTypes.TabIndex = 3;
-            this.chkManageApplicationTypes.Tag = "ManageApplicationTypes";
-            this.chkManageApplicationTypes.Text = "Manage Application Types";
-            this.chkManageApplicationTypes.UseVisualStyleBackColor = true;
-            this.chkManageApplicationTypes.CheckedChanged += new System.EventHandler(this.chkManageApplicationTypes_CheckedChanged);
-            // 
-            // chkManageDetainedLicenses
-            // 
-            this.chkManageDetainedLicenses.AutoSize = true;
-            this.chkManageDetainedLicenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManageDetainedLicenses.Location = new System.Drawing.Point(81, 366);
-            this.chkManageDetainedLicenses.Name = "chkManageDetainedLicenses";
-            this.chkManageDetainedLicenses.Size = new System.Drawing.Size(272, 29);
-            this.chkManageDetainedLicenses.TabIndex = 4;
-            this.chkManageDetainedLicenses.Tag = "ManageDetainedLicenses";
-            this.chkManageDetainedLicenses.Text = "Manage Detained Licenses";
-            this.chkManageDetainedLicenses.UseVisualStyleBackColor = true;
-            this.chkManageDetainedLicenses.CheckedChanged += new System.EventHandler(this.chkManageDetainedLicenses_CheckedChanged);
-            // 
-            // chkManageInternationalLicenseApplications
-            // 
-            this.chkManageInternationalLicenseApplications.AutoSize = true;
-            this.chkManageInternationalLicenseApplications.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManageInternationalLicenseApplications.Location = new System.Drawing.Point(81, 296);
-            this.chkManageInternationalLicenseApplications.Name = "chkManageInternationalLicenseApplications";
-            this.chkManageInternationalLicenseApplications.Size = new System.Drawing.Size(401, 29);
-            this.chkManageInternationalLicenseApplications.TabIndex = 5;
-            this.chkManageInternationalLicenseApplications.Tag = "ManageInternationalLicenseApplications";
-            this.chkManageInternationalLicenseApplications.Text = "Manage International License Applications";
-            this.chkManageInternationalLicenseApplications.UseVisualStyleBackColor = true;
-            this.chkManageInternationalLicenseApplications.CheckedChanged += new System.EventHandler(this.chkManageInternationalLicenseApplications_CheckedChanged);
-            // 
-            // chkManageTestTypes
-            // 
-            this.chkManageTestTypes.AutoSize = true;
-            this.chkManageTestTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManageTestTypes.Location = new System.Drawing.Point(620, 156);
-            this.chkManageTestTypes.Name = "chkManageTestTypes";
-            this.chkManageTestTypes.Size = new System.Drawing.Size(210, 29);
-            this.chkManageTestTypes.TabIndex = 6;
-            this.chkManageTestTypes.Tag = "ManageTestTypes";
-            this.chkManageTestTypes.Text = "Manage Test Types";
-            this.chkManageTestTypes.UseVisualStyleBackColor = true;
-            this.chkManageTestTypes.CheckedChanged += new System.EventHandler(this.chkManageTestTypes_CheckedChanged);
-            // 
-            // chkRenewDrivingLicense
-            // 
-            this.chkRenewDrivingLicense.AutoSize = true;
-            this.chkRenewDrivingLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRenewDrivingLicense.Location = new System.Drawing.Point(620, 226);
-            this.chkRenewDrivingLicense.Name = "chkRenewDrivingLicense";
-            this.chkRenewDrivingLicense.Size = new System.Drawing.Size(232, 29);
-            this.chkRenewDrivingLicense.TabIndex = 7;
-            this.chkRenewDrivingLicense.Tag = "RenewDrivingLicense";
-            this.chkRenewDrivingLicense.Text = "Renew Driving License";
-            this.chkRenewDrivingLicense.UseVisualStyleBackColor = true;
-            this.chkRenewDrivingLicense.CheckedChanged += new System.EventHandler(this.chkRenewDrivingLicense_CheckedChanged);
-            // 
-            // chkReplaceDrivingLicense
-            // 
-            this.chkReplaceDrivingLicense.AutoSize = true;
-            this.chkReplaceDrivingLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkReplaceDrivingLicense.Location = new System.Drawing.Point(620, 296);
-            this.chkReplaceDrivingLicense.Name = "chkReplaceDrivingLicense";
-            this.chkReplaceDrivingLicense.Size = new System.Drawing.Size(243, 29);
-            this.chkReplaceDrivingLicense.TabIndex = 8;
-            this.chkReplaceDrivingLicense.Tag = "ReplaceDrivingLicense";
-            this.chkReplaceDrivingLicense.Text = "Replace Driving License";
-            this.chkReplaceDrivingLicense.UseVisualStyleBackColor = true;
-            this.chkReplaceDrivingLicense.CheckedChanged += new System.EventHandler(this.chkReplaceDrivingLicense_CheckedChanged);
-            // 
-            // chkManageDrivers
-            // 
-            this.chkManageDrivers.AutoSize = true;
-            this.chkManageDrivers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkManageDrivers.Location = new System.Drawing.Point(620, 366);
-            this.chkManageDrivers.Name = "chkManageDrivers";
-            this.chkManageDrivers.Size = new System.Drawing.Size(172, 29);
-            this.chkManageDrivers.TabIndex = 9;
-            this.chkManageDrivers.Tag = "ManageDrivers";
-            this.chkManageDrivers.Text = "Manage Drivers";
-            this.chkManageDrivers.UseVisualStyleBackColor = true;
-            this.chkManageDrivers.CheckedChanged += new System.EventHandler(this.chkManageDrivers_CheckedChanged);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.Image = global::DVLD_UI.Properties.Resources.Prev_32;
-            this.btnPrev.Location = new System.Drawing.Point(23, 6);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(61, 51);
-            this.btnPrev.TabIndex = 2;
-            this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnPermessions
-            // 
-            this.btnPermessions.Image = global::DVLD_UI.Properties.Resources.Next_32;
-            this.btnPermessions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPermessions.Location = new System.Drawing.Point(759, 496);
-            this.btnPermessions.Name = "btnPermessions";
-            this.btnPermessions.Size = new System.Drawing.Size(179, 36);
-            this.btnPermessions.TabIndex = 14;
-            this.btnPermessions.Text = "Permessions";
-            this.btnPermessions.UseVisualStyleBackColor = true;
-            this.btnPermessions.Click += new System.EventHandler(this.btnPermessions_Click);
-            // 
-            // ctrlPersonWithfilter2
-            // 
-            this.ctrlPersonWithfilter2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ctrlPersonWithfilter2.FilterEnabled = true;
-            this.ctrlPersonWithfilter2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonWithfilter2.Location = new System.Drawing.Point(8, 19);
-            this.ctrlPersonWithfilter2.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrlPersonWithfilter2.Name = "ctrlPersonWithfilter2";
-            this.ctrlPersonWithfilter2.ShowAddPersonBtn = true;
-            this.ctrlPersonWithfilter2.Size = new System.Drawing.Size(933, 455);
-            this.ctrlPersonWithfilter2.TabIndex = 0;
-            // 
             // frmAddUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -550,11 +550,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epAddUpdate)).EndInit();
             this.tpPermessions.ResumeLayout(false);
             this.tpPermessions.PerformLayout();
             this.gbPermessions.ResumeLayout(false);
             this.gbPermessions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epAddUpdate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
