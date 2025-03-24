@@ -2,15 +2,9 @@
 using DVLD_UI.GlobalClasses;
 using DVLD_UI.People.My_Controls;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using static DVLD_UI.GlobalClasses.clsGlobal;
 namespace DVLD_UI.Users
 {
     public partial class frmAddUpdateUser : Form
@@ -43,34 +37,34 @@ namespace DVLD_UI.Users
         private void _ResetCheckBoxes()
         {
             chkManagePeople.Checked =
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ManagePeople);
+                CheckPermesstions(_User, enPersmessions.ManagePeople);
 
             chkManageUsers.Checked =
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ManageUsers);
+                CheckPermesstions(_User, enPersmessions.ManageUsers);
 
             chkManageLocalLicenseApplications.Checked = 
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ManageLocalLicenseApplications);
+                CheckPermesstions(_User, enPersmessions.ManageLocalLicenseApplications);
 
             chkManageInternationalLicenseApplications.Checked =
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ManageInternationalLicenseApplications);
+                CheckPermesstions(_User, enPersmessions.ManageInternationalLicenseApplications);
             
             chkManageDetainedLicenses.Checked = 
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ManageDetainedLicenses);
+                CheckPermesstions(_User, enPersmessions.ManageDetainedLicenses);
           
             chkManageApplicationTypes.Checked =
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ManageApplicationTypes);
+                CheckPermesstions(_User, enPersmessions.ManageApplicationTypes);
            
             chkManageTestTypes.Checked = 
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ManageTestTypes);
+                CheckPermesstions(_User, enPersmessions.ManageTestTypes);
             
             chkRenewDrivingLicense.Checked = 
-                clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.RenewDrivingLicense);
+                CheckPermesstions(_User, enPersmessions.RenewDrivingLicense);
             
             chkReplaceDrivingLicense.Checked
-                = clsGlobal.CheckPermesstions(_User, clsGlobal.enPersmessions.ReplaceDrivingLicense);
+                = CheckPermesstions(_User, enPersmessions.ReplaceDrivingLicense);
            
             chkManageDrivers.Checked = 
-                clsGlobal.CheckPermesstions(_User,clsGlobal.enPersmessions.ManageDrivers);
+                CheckPermesstions(_User, enPersmessions.ManageDrivers);
 
 
         }
@@ -346,124 +340,22 @@ namespace DVLD_UI.Users
 
         private void chkManagePeople_CheckedChanged(object sender, EventArgs e)
         {
+            CheckBox box = (CheckBox)sender;
 
-            if(chkManagePeople.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManagePeople;
+            enPersmessions Permession = (enPersmessions)Enum.Parse(typeof(enPersmessions), box.Tag.ToString());
+
+            if(box.Checked)
+                Permessions += (int)Permession;
             else
             {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManagePeople))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManagePeople;
+                if (CheckPermesstions(Permession))
+                    Permessions -= (int)Permession;
             }
 
 
 
         }
 
-        private void chkManageUsers_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkManageUsers.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManageUsers;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageUsers))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManageUsers;
-            }
-
-        }
-
-        private void chkManageLocalLicenseApplications_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkManageLocalLicenseApplications.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManageLocalLicenseApplications;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageLocalLicenseApplications))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManageLocalLicenseApplications;
-            }
-
-        }
-
-        private void chkManageInternationalLicenseApplications_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkManageInternationalLicenseApplications.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManageInternationalLicenseApplications;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageInternationalLicenseApplications))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManageInternationalLicenseApplications;
-            }
-
-        }
-
-        private void chkManageDetainedLicenses_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkManageDetainedLicenses.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManageDetainedLicenses;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageDetainedLicenses))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManageDetainedLicenses;
-            }
-
-        }
-
-        private void chkManageApplicationTypes_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkManageApplicationTypes.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManageApplicationTypes;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageApplicationTypes))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManageApplicationTypes;
-            }
-
-        }
-
-        private void chkManageTestTypes_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkManageTestTypes.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManageTestTypes;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageDrivers))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManageDrivers;
-            }
-
-        }
-
-        private void chkRenewDrivingLicense_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkRenewDrivingLicense.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.RenewDrivingLicense;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.RenewDrivingLicense))
-                    Permessions -= (int)clsGlobal.enPersmessions.RenewDrivingLicense;
-            }
-
-        }
-
-        private void chkReplaceDrivingLicense_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkReplaceDrivingLicense.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ReplaceDrivingLicense;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ReplaceDrivingLicense))
-                    Permessions -= (int)clsGlobal.enPersmessions.ReplaceDrivingLicense;
-            }
-
-        }
-
-        private void chkManageDrivers_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkManageDrivers.Checked)
-                Permessions += (int)clsGlobal.enPersmessions.ManageDrivers;
-            else
-            {
-                if (clsGlobal.CheckPermesstions(clsGlobal.enPersmessions.ManageDrivers))
-                    Permessions -= (int)clsGlobal.enPersmessions.ManageDrivers;
-            }
-        }
+       
     }
 }
