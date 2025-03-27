@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -51,12 +52,13 @@ namespace DVLD_UI.Users.My_Controls
         
         }
 
-
+  
         private void _FillLoginInfo()
         {
             string UserName = "", Password ="";
 
-            if (clsGlobal.GetStoredCredintials(ref UserName,ref Password))
+            
+            if (clsGlobal.GetStoredCredintialsFromRegistry(ref UserName,ref Password))
             {
                 txtUserName.Text = UserName;
                 txtPassword.Text = Password;
@@ -74,12 +76,12 @@ namespace DVLD_UI.Users.My_Controls
             if(chkRememberMe.Checked)
             {
                 
-                clsGlobal.SaveCredintiols(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+                clsGlobal.SaveCredintiolsInRegistry(txtUserName.Text.Trim(), txtPassword.Text.Trim());
 
             }
             else
             {
-                clsGlobal.SaveCredintiols("", "");
+                clsGlobal.CheckForRegisterValues();
 
             }
 

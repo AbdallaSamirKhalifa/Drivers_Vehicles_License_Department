@@ -1,18 +1,137 @@
 ﻿using DVLD_Buisness;
 using System;
-using System.Collections.Generic;
+using Microsoft.Win32;
 using System.IO;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace DVLD_UI.GlobalClasses
 {
     internal static class clsGlobal
     {
+
+        private const string KeyPath = @"SOFTWARE\DVLD";
+        private const string valueNameForUserName = "UserName";
+        private const string valueNameForPass = "Password";
         public static clsUser CurrentUser;
+
+        public static bool CheckForRegisterValues()
+        {
+
+            try
+            { 
+                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(KeyPath,true))
+                 {
+                     if (key != null)
+                     {
+                        if (key.GetValueNames().Length > 1)
+                        {
+                            key.DeleteValue(valueNameForUserName);
+                            key.DeleteValue(valueNameForPass);
+
+                        }
+                    }
+                    else
+                        throw new Exception("Key not found");
+
+                }
+                return true;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show($"Unauthorized Access Exception: Run the program with administrative privileges",
+                    "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Some error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public static bool SaveCredintiolsInRegistry(string UserName, string Password)
+        {
+            if(!CheckForRegisterValues()) 
+                return false;
+            
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(KeyPath,true))
+                {
+
+                    if (key != null)
+                    {
+                        
+
+                        key.SetValue(valueNameForUserName, UserName, RegistryValueKind.String);
+                        key.SetValue(valueNameForPass, Password, RegistryValueKind.String);
+
+
+                    }
+                    else
+                        throw new Exception("Key not found");
+                }
+
+                return true;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show($"Unauthorized Access Exception: Run the program with administrative privileges",
+                    "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Some error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            
+        }
+        public static bool GetStoredCredintialsFromRegistry(ref string UserName, ref string Password)
+        {
+
+
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(KeyPath, false))
+                {
+                    if (key != null)
+                    {
+                        string UserNameValue=key.GetValue(valueNameForUserName, null) as string;
+                        string PasswordValue=key.GetValue(valueNameForPass, null) as string;
+
+                        if (UserNameValue != null && PasswordValue != null)
+                        {
+                            UserName = UserNameValue;
+                            Password = PasswordValue;
+                        }
+                        else
+                            return false;
+                       
+
+                    }
+                    else
+                        throw new Exception("Key not found");
+
+                }
+
+                return true;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show($"Unauthorized Access Exception: Run the program with administrative privileges",
+                    "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Some error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
+
+        }
 
         public static bool SaveCredintiols(string UserName, string Passeword)
         {
@@ -94,7 +213,7 @@ namespace DVLD_UI.GlobalClasses
             ManageDrivers=512
                 
         };
-        public static enPersmessions Permessions { get; }
+
 
         public static bool CheckPermesstions(enPersmessions Permession)
         {
