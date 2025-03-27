@@ -20,20 +20,23 @@ namespace DVLD_UI.GlobalClasses
 
             try
             { 
-                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(KeyPath,true))
-                 {
-                     if (key != null)
-                     {
-                        if (key.GetValueNames().Length > 1)
+                using (RegistryKey BaseKey=RegistryKey.OpenBaseKey(RegistryHive.CurrentUser,RegistryView.Registry64))
+                {    using (RegistryKey SubKey = BaseKey.OpenSubKey(KeyPath, true))
+
+                    {
+                        if (SubKey != null)
                         {
-                            key.DeleteValue(valueNameForUserName);
-                            key.DeleteValue(valueNameForPass);
+                            if (SubKey.GetValueNames().Length > 1)
+                            {
+                                SubKey.DeleteValue(valueNameForUserName);
+                                SubKey.DeleteValue(valueNameForPass);
 
+                            }
                         }
-                    }
-                    else
-                        throw new Exception("Key not found");
+                        else
+                            throw new Exception("Key not found");
 
+                    }
                 }
                 return true;
             }
