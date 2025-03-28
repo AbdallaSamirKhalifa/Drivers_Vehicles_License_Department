@@ -24,7 +24,7 @@ namespace DVLD_UI.Users.My_Controls
         private bool _CheckCredintials() 
         {
 
-            clsGlobal.CurrentUser = clsUser.FindByUserNameAndPassword(txtUserName.Text.Trim(),txtPassword.Text.Trim() );
+            clsGlobal.CurrentUser = clsUser.FindByUserNameAndPassword(txtUserName.Text.Trim(),clsGlobal.ComputeHash(txtPassword.Text.Trim()));
 
             if (clsGlobal.CurrentUser != null)
             {

@@ -3,7 +3,8 @@ using System;
 using Microsoft.Win32;
 using System.IO;
 using System.Windows.Forms;
-
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DVLD_UI.GlobalClasses
 {
@@ -217,6 +218,15 @@ namespace DVLD_UI.GlobalClasses
                 
         };
 
+        public static string ComputeHash(string Input)
+        {
+            using(SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Input));
+
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
 
         public static bool CheckPermesstions(enPersmessions Permession)
         {

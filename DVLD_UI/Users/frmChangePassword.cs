@@ -1,4 +1,5 @@
 ﻿using DVLD_Buisness;
+using DVLD_UI.GlobalClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,7 +40,7 @@ namespace DVLD_UI.Users
             if (MessageBox.Show("Are you sure you want to change this users password","Question"
                 ,MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
             {
-            if (_User.ChangePassword(txtNewPassword.Text.ToString()))
+            if (_User.ChangePassword(clsGlobal.ComputeHash(txtNewPassword.Text)))
             {
                     MessageBox.Show("Password changed successfully", "Information"
                     , MessageBoxButtons.OK, MessageBoxIcon.Information);
