@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,7 +51,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetLocalDrivingLicenseApplicetionByID.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -99,7 +101,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetLocalDrivingLicenseApplicetionByApplicationID.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -144,7 +147,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetAllLocalDrivingLicenseApplications.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -188,7 +192,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From AddNewLocalDrivingLicenseApplication.", EventLogEntryType.Error );
+
 
             }
 
@@ -228,7 +233,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateLocalDrivingLicenseApplication.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -263,7 +269,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From DeleteLocalDrivingLicenseApplication.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -313,7 +320,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From DoesPassTestType.", EventLogEntryType.Error );
+
 
             }
 
@@ -363,7 +371,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From DoesAttendTestType.", EventLogEntryType.Error );
+
 
             }
 
@@ -413,7 +422,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From TotalTrialsPerTest.", EventLogEntryType.Error );
+
 
             }
 
@@ -463,7 +473,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From IsThereAnActiveScheduledTest.", EventLogEntryType.Error );
+
 
             }
 

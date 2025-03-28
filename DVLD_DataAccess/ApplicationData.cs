@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
@@ -45,7 +46,11 @@ namespace DVLD_DataAccess
 
                 reader.Close();
 
-            }catch (Exception ex) { }
+            }catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetApplicationInfoByID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return resault;
@@ -82,7 +87,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetAllApplications.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -136,7 +142,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From AddNewApplication.", EventLogEntryType.Error );
+
 
             }
 
@@ -185,7 +192,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateApplication.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -218,7 +226,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From DeleteApplication.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -255,7 +264,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From IsApplicationExist.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -292,7 +302,11 @@ namespace DVLD_DataAccess
                 }
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetActiveApplicationID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return ActiveApplicationID;
@@ -331,7 +345,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateStatus.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -376,7 +391,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetActiveApplicationIDForLicenseClass.", EventLogEntryType.Error );
+
                 return ActiveApplicationID;
             }
             finally

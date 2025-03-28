@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetLicenceClassInfoByID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             
@@ -76,7 +81,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetLicenceClassInfoByClassName.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return result;
         }
@@ -106,7 +115,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetAllLicenseClasses.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return dataTable;
         }
@@ -146,7 +159,11 @@ namespace DVLD_DataAccess
                
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From AddNewLicenseClass.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return LicenceClassID;
@@ -185,7 +202,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateLicenseClass.", EventLogEntryType.Error );
+
                 return false;
             }
 

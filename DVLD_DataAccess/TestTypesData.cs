@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -31,7 +32,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetAllTestTypes.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return dt;
@@ -65,7 +70,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetTestType.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return resault;
         }
@@ -97,7 +106,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetTestTypeByTitle.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return resault;
@@ -128,7 +141,11 @@ namespace DVLD_DataAccess
                 rowAffected = command.ExecuteNonQuery();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From UpdateTestType.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return rowAffected > 0;
@@ -166,7 +183,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From AddNewTestType.", EventLogEntryType.Error );
+
 
             }
 

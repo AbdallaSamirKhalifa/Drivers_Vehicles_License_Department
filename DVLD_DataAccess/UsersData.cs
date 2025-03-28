@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.ComponentModel.Design.Serialization;
+using System.Diagnostics;
 
 namespace DVLD_DataAccess
 {
@@ -43,7 +44,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From GetUserInfoByID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return result;
 
@@ -80,13 +85,17 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetUserInfoByPersonID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return result;
         }
 
-        public static bool GetUserInfoByUserNameAndPAssword(ref int UserID,ref int PersonID, ref string FullName, string UserName
+        public static bool GetUserInfoByUserNameAndPassword(ref int UserID,ref int PersonID, ref string FullName, string UserName
             ,string Password, ref int Permessions,ref bool IsActive)
         {
             bool result = false;
@@ -117,7 +126,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetUserInfoByUserNameAndPassword.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return result;
@@ -150,7 +163,11 @@ namespace DVLD_DataAccess
                 }
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From AddNewUser.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return UserID;
         }
@@ -181,7 +198,11 @@ namespace DVLD_DataAccess
                 rowsAffected = command.ExecuteNonQuery();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From UpdateUser.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return rowsAffected > 0;
         }
@@ -202,7 +223,11 @@ namespace DVLD_DataAccess
                 rowAffected = command.ExecuteNonQuery();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From DeleteUser.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return rowAffected > 0;
 
@@ -230,7 +255,11 @@ namespace DVLD_DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetAllUsers.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return dataTable;
@@ -251,7 +280,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From IsUserExist.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -272,7 +305,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From IsUserExist.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -292,7 +329,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From IsUserExistForPersonID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -318,7 +359,11 @@ namespace DVLD_DataAccess
                 rowsAffected = command.ExecuteNonQuery();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From ChangePassword.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return rowsAffected > 0;
         }

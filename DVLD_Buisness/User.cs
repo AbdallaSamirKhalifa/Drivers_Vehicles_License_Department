@@ -80,7 +80,7 @@ namespace DVLD_Buisness
             string FullName = "";
             int Permessions = 0;
 
-            if (clsUsersData.GetUserInfoByUserNameAndPAssword(ref UserID,ref PersonID, ref FullName,  UserName, Password, ref Permessions,ref IsActive))
+            if (clsUsersData.GetUserInfoByUserNameAndPassword(ref UserID,ref PersonID, ref FullName,  UserName, Password, ref Permessions,ref IsActive))
             {
                 return new clsUser(UserID, PersonID, UserName, Password, Permessions,IsActive, FullName);
             }

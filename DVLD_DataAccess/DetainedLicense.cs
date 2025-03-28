@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +71,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetDetainedLicenseInfoByID.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -147,7 +149,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetDetainedLicenseInfoByLicenseID.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -186,7 +189,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetAllDetainedLicenses.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -242,7 +246,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From AddNewDetainedLicense.", EventLogEntryType.Error );
+
 
             }
 
@@ -285,7 +290,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateDetainedLicense.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -324,7 +330,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From ReleaseDetainedLicense.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -366,7 +373,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From IsLicenseDetained.", EventLogEntryType.Error );
+
 
             }
 

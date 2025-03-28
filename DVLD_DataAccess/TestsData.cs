@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -46,7 +47,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetTestInfoByID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return isFound;
@@ -112,7 +117,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetLastTestByPersonAndTestTypeAndLicenseClass.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -153,7 +159,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetAllTests.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -209,7 +216,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From AddNewTest.", EventLogEntryType.Error );
+
 
             }
 
@@ -253,7 +261,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateTest.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -295,7 +304,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetPassedTestCount.", EventLogEntryType.Error );
+
 
             }
 

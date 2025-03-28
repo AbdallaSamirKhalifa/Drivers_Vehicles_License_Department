@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -31,7 +32,10 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetAllApplicationTypes.", EventLogEntryType.Error );
+            }
             finally { connection.Close(); }
 
             return dt;
@@ -63,7 +67,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
 
-            }catch (Exception ex) { }
+            }catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From GetApplicationType.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
             return resault;
         }
@@ -93,7 +101,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
 
-            }catch (Exception ex) { }
+            }catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetApplicationTypeByTitle.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return resault;
@@ -129,7 +141,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From AddNewApplicationType.", EventLogEntryType.Error );
+
 
             }
 
@@ -162,8 +175,12 @@ namespace DVLD_DataAccess
                 connection.Open();
                 rowAffected = command.ExecuteNonQuery();
                 
-            }catch(Exception ex) { }
-            finally{ connection.Close(); }
+            }catch(Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From UpdateApplicationType.", EventLogEntryType.Error );
+
+            }
+            finally { connection.Close(); }
 
             return rowAffected > 0;
 

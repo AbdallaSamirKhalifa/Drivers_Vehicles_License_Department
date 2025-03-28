@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Resources;
 using System.Text;
@@ -52,7 +53,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetTestAppointmentByID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return isFound;
@@ -102,7 +107,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetLastTestAppointment.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return isFound;
@@ -139,7 +148,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetAllTestAppointments.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -185,7 +195,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetApplicationTestAppointmentPerTestType.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -232,7 +243,11 @@ namespace DVLD_DataAccess
                     TestAppointmentID = insertedID;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From AddNewTestAppointment.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return TestAppointmentID;
@@ -284,7 +299,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateTestAppointment.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -318,7 +334,11 @@ namespace DVLD_DataAccess
                     TestID = id;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetTestID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return TestID;
