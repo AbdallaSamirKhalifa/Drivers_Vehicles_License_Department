@@ -117,8 +117,8 @@ namespace DVLD_UI.Users
 
                 lblUserID.Text = _User.UserID.ToString();
                 txtUserName.Text = _User.UserName.ToString();
-                txtPassword.Text = _User.Password.ToString();
-                txtConfirmPassword.Text = _User.Password.ToString();
+                txtPassword.Text = "";
+                txtConfirmPassword.Text = "";
                 chkIsActive.Checked = _User.IsActive;
                 ctrlPersonWithfilter2.LoadPersonInfo(_User.PersonID);
                 if (_User.Permessions == -1)
@@ -132,7 +132,7 @@ namespace DVLD_UI.Users
         {
             _User.PersonID = ctrlPersonWithfilter2.PersonID;
             _User.UserName= txtUserName.Text;
-            _User.Password= txtPassword.Text;
+            _User.Password = ComputeHash(txtPassword.Text);
             _User.IsActive=chkIsActive.Checked;
             _User.Permessions = Permessions;
             if (_User.Save())
@@ -274,6 +274,8 @@ namespace DVLD_UI.Users
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
+
+
         {
             if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
             {
