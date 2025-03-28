@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,7 +68,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetLicenseInfoByID.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -108,7 +110,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetAllLicenses.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -157,7 +160,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetDriverLicenses.", EventLogEntryType.Error );
+
             }
             finally
             {
@@ -234,7 +238,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From AddNewLicense.", EventLogEntryType.Error );
+
 
             }
 
@@ -293,7 +298,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From UpdateLicense.", EventLogEntryType.Error );
+
                 return false;
             }
 
@@ -339,7 +345,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From GetActiveLicenseIDByPersonID.", EventLogEntryType.Error );
+
 
             }
 
@@ -384,7 +391,8 @@ namespace DVLD_DataAccess
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From IsLicenseExistForPerson.", EventLogEntryType.Error );
+
 
             }
 
@@ -422,7 +430,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Logger.Log( $"{ex.Message}, From DeactivateLicense.", EventLogEntryType.Error );
+
                 return false;
             }
 

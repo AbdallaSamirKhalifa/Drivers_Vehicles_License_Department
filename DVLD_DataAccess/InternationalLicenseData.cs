@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,7 +51,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex){}
+            catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From GetInternationalLicenseByID.", EventLogEntryType.Error );
+
+            }
             finally
             {connection.Close();}
 
@@ -85,7 +90,11 @@ namespace DVLD_DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex){}
+            catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From GetAllInternationalLicenses.", EventLogEntryType.Error );
+
+            }
             finally
             {connection.Close();}
 
@@ -123,7 +132,11 @@ namespace DVLD_DataAccess
 
             }
 
-            catch (Exception ex){}
+            catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From GetDriverInternationalLicenses.", EventLogEntryType.Error );
+
+            }
             finally
             {connection.Close();}
 
@@ -170,7 +183,11 @@ namespace DVLD_DataAccess
                     InternationalLicenseID = insertedID;
                 }
             }
-            catch (Exception ex){}
+            catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From AddNewInternationalLicense.", EventLogEntryType.Error );
+
+            }
             finally
             {connection.Close();}
 
@@ -217,7 +234,10 @@ namespace DVLD_DataAccess
 
             }
             catch (Exception ex)
-            { }
+            {
+                Logger.Log( $"{ex.Message}, From UpdateInternationalLicense.", EventLogEntryType.Error );
+
+            }
 
             finally
             {  connection.Close(); }
@@ -254,7 +274,11 @@ namespace DVLD_DataAccess
                 }
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetActiveInternationalLicenseIDByDriverID.", EventLogEntryType.Error );
+
+            }
 
             finally
             { connection.Close(); }
@@ -289,7 +313,11 @@ namespace DVLD_DataAccess
                 Found = reader.HasRows;
             }
 
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From IsInternationalLicenseExists.", EventLogEntryType.Error );
+
+            }
 
             finally
             { connection.Close(); }

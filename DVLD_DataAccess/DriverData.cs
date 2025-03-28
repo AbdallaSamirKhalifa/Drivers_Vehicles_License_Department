@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,11 @@ namespace DVLD_DataAccess
                 reader.Close();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetDriverInfoByDriverID.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return isFound; 
@@ -82,6 +87,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
+                Logger.Log( $"{ex.Message}, From GetDriverInfoByPersonID.", EventLogEntryType.Error );
+
                 isFound = false;
             }
             finally
@@ -118,7 +125,11 @@ namespace DVLD_DataAccess
 
             }
 
-            catch (Exception ex){ }
+            catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From GetAllDrivers.", EventLogEntryType.Error );
+
+            }
             finally
             {
                 connection.Close();
@@ -156,7 +167,11 @@ namespace DVLD_DataAccess
                 }
             }
 
-            catch (Exception ex){}
+            catch (Exception ex)
+            {
+                Logger.Log( $"{ex.Message}, From AddNewDriver.", EventLogEntryType.Error );
+
+            }
 
             finally
             {
@@ -189,7 +204,12 @@ namespace DVLD_DataAccess
                 rowsAffected = command.ExecuteNonQuery();
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From UpdateDriver.", EventLogEntryType.Error );
+
+            }
+
 
             finally
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,11 @@ namespace DVLD_DataAccess
 
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetAllCountries.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
 
@@ -58,7 +63,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetCountry.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return result;
@@ -87,7 +96,11 @@ namespace DVLD_DataAccess
                 }
                 reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Logger.Log( $"{ex.Message}, From GetCountryByName.", EventLogEntryType.Error );
+
+            }
             finally { connection.Close(); }
 
             return result;
